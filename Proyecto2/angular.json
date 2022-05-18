@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "App-Compiladores1": {
+    "Proyecto2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "App-Compiladores1:build:production"
+              "browserTarget": "Proyecto2:build:production"
             },
             "development": {
-              "browserTarget": "App-Compiladores1:build:development"
+              "browserTarget": "Proyecto2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "App-Compiladores1:build"
+            "browserTarget": "Proyecto2:build"
           }
         },
         "test": {
@@ -106,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "App-Compiladores1"
+  "defaultProject": "Proyecto2"
 }
