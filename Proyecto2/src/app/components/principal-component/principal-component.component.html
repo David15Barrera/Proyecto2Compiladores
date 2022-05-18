@@ -1,0 +1,129 @@
+<!-- Barra de navegacion -->
+<header>
+  <div> 
+    <nav>
+      <ul>
+        <li>
+          <button type="button" (click)="mostrarEditor()">Editor</button>
+        </li>
+        <li>
+          <button type="button" (click)="mostrarErrores()">Errores</button>
+        </li>
+        <li>
+          <button type="button"(click)="mostrarTablas()" >Reportes</button>
+        </li>
+        <li>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<br>
+<br>
+<!-- Cuadro de edicion-->
+<div [hidden]="hiddenEditor">
+  <div class = "mx-auto" style="width: 1000px;">
+    <div class="SubArch" id="columna1">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <h4 class="Subir"> Subir</h4>
+    <br>
+      <input #fileUpload [accept]="'.crl'" type="file" (change)="subirCRL($event)">
+      <br>
+      <br>
+      <button type="button" class="Importar" (click)="importarCRL()">Importar</button> 
+    </div>   
+    <br>
+    <br>
+      <h2 class="titulo">Cuadro de Texto</h2>
+    <br>  
+    <div class="mb-3" id="columna2">
+      <div class="col-md-11" >
+        <ngx-codemirror [(ngModel)]="texto" row
+        [options]="{
+          lineNumbers: true,
+          theme: 'Primary',
+          tabSize: 6
+        }" name = "texto"></ngx-codemirror>
+      </div>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="botones">
+          <button type="button" class="Importar" (click)="compilarProyecto()" >Compilar</button> 
+          <button type="button" class="Importar" (click)="descargarCRL()">Download</button>
+          <button type="button" class="Importar" (click)="limpiarConsola()">Limpiar Consola </button>
+        </div>
+      </div>     
+    </div>
+  </div>
+  
+  <div class = "mx-auto"style="width: 1000px;">
+    <div class="mb-3" id="columna2">
+      <h3 class="Compilar">Consola</h3>
+      <br>
+      <textarea class="consola" readonly = "readonly" rows = "8" cols="90" [(ngModel)]="resultado" name = "resultado" placeholder=" Consola  "></textarea>
+    </div>
+  </div>
+</div>
+<!-- Parte de errores -->
+<div class = "mx-auto"style="width: 1000px;" [hidden]="hiddenErrores">
+  <h1 class="Compilar">Errores</h1>
+  <br>
+  <table class="table table-light" style="background-color: rgb(106, 205, 238); color: white;">
+    <thead class="tablaSym">
+      <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Mensaje</th>
+        <th scope="col">Linea</th>
+        <th scope="col">Columna</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let e of this.errores" >
+      <tr>
+        <td>{{e.tipo}}</td>
+        <td>{{e.mensaje}}</td>
+        <td>{{e.fila}}</td>
+        <td>{{e.columna}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Graficios. -->
+<div id = "graficos" class = "mx-auto"style="width: 1000px;" [hidden]="hiddenGraficos"></div>
+
+<!-- Tablas de los simbolos -->
+<div id = "tablas" class = "mx-auto"style="width: 1000px;" [hidden]="hiddenTablas">  
+  <div *ngFor="let tab of this.tablas">
+    <br>
+    <br>
+ <!--   <h3 class="Simbolos">Simbolos: {{tab.fila}}</h3>-->
+ <h3 class="Simbolos">Reportes</h3>
+    <br>
+    <table class="table table-blue" style="background-color: rgb(106, 205, 238); color: white;">
+      <thead class="tablaSym">
+        <tr>
+          <th scope="col">Identidad</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Fila</th>
+          <th scope="col">Columna</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let col of tab.columnasTabla" >
+        <tr>
+          <td>{{col.id}}</td>
+          <td>{{col.valor}}</td>
+          <td>{{col.tipo}}</td>
+          <td>{{col.fila}}</td>
+          <td>{{col.columna}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!--  <button type="button"  class = "Importar" (click)="mostrarGraficos()">Graficos</button> -->
+</div>
+

@@ -1,0 +1,111 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+header{
+  background:rgb(99, 197, 230);
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+}
+nav{
+  float: left;
+}
+
+nav ul{
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li{
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+nav ul li button{
+   display: inline-block;
+   padding: 5px 10px;
+   height: 40px;
+   cursor: pointer;
+   color: white;
+   background: rgb(99, 197, 230);
+   text-decoration:none;
+   font-weight: bold;
+   outline: none;
+   border-radius: 5px;
+   border: none;
+}
+
+nav ul li:hover{
+   box-shadow: 0 3px lightblue ;
+   top: 1px;
+} 
+.titulo{
+  text-align: center;
+  color: rgb(55, 191, 236);
+   }
+
+.Importar{
+      display: inline-block;
+      padding: 5px 10px;
+      height: 40px;
+      cursor: pointer;
+      color: white;
+      background: rgb(99, 197, 230);
+      text-decoration:none;
+      font-weight: bold;
+      outline: none;
+      border-radius: 5px;
+      border: none;
+      margin: 10px;
+  }
+.Subir{
+   color:rgb(55, 191, 236);
+   text-align: center;
+}   
+.Compilar{
+  color:rgb(55, 191, 236);
+  text-align: center;
+}
+.Simbolos{
+  color:rgb(55, 191, 236);
+  text-align: center;
+  position: center;
+
+}
+.SubArch{
+   text-align: center;
+}
+
+.botones{
+   text-align: center;
+   
+}
+.divGrafico{
+    background-color: blue;
+}
+.consola{
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  position: center;
+}
+.tablaSym{
+  background-color: lightblue;
+}
+.tablasim{
+  background-color: rgb(106, 205, 238);
+}
+#columna1 {
+  position:absolute;
+  top:0px;
+  left:100px;
+  width:200px;
+  margin-top:10px;
+  }
+  #columna2 {
+  margin-left:320px;
+  margin-right:20px;
+  margin-top:10px;
+  }
